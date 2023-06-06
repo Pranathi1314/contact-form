@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="style.css">
   <title>Contact Information Form</title>
   <script>
     function submitForm() {
@@ -44,6 +45,7 @@
 </head>
 <body>
   <h1>Contact Form</h1>
+  <div>
   <form>
     <label for="name">Name : </label>
     <input type="text" id="name" required><br><br>
@@ -62,7 +64,7 @@
 
     <label for="feedback">Feedback : </label>
     <textarea id="feedback" rows="4" required></textarea><br><br>
-
+  </div>
     <input type="button" value="Submit" onclick="submitForm()">
   </form>
 </body>
