@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Information Form</title>
+  <script>
+    function submitForm() {
+      // Get form values
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var year = document.getElementById("year").value;
+      var branch = document.getElementById("branch").value;
+      var phone_no = document.getElementById("phone_no").value;
+      var feedback = document.getElementById("feedback").value;
+
+
+      // Create email body
+      var body = "Name : " + name + "\n";
+      body += "Email : " + email + "\n";
+      body += "Year : " + year + "\n";
+      body += "Branch : " + branch + "\n";
+      body += "Phone number : " + phone_no + "\n";
+      body += "Feedback : " + feedback;
+
+
+      // Send email (dummy action in this example)
+      alert("Sending email....\n\n" + body);
+
+      // Send email
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "submit_email.php", true);
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.send("name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email) + "&year=" + encodeURIComponent(year) + "&branch=" + encodeURIComponent(branch) + "&phone_no=" + encodeURIComponent(phone_no) + "&feedback=" + encodeURIComponent(feedback));
+
+
+      // Reset form fields
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("year").value = "";
+      document.getElementById("branch").value = "";
+      document.getElementById("phone_no").value = "";
+      document.getElementById("feedback").value = "";
+    }
+  </script>
+</head>
+<body>
+  <h1>Contact Form</h1>
+  <form>
+    <label for="name">Name : </label>
+    <input type="text" id="name" required><br><br>
+
+    <label for="email">Email : </label>
+    <input type="email" id="email" required><br><br>
+
+    <label for="year">Year : </label>
+    <input type="text" id="year" required><br><br>
+
+    <label for="branch">Branch : </label>
+    <input type="text" id="branch" required><br><br>
+
+    <label for="phone_no">Phone number : </label>
+    <input type="text" id="phone_no" required><br><br>
+
+    <label for="feedback">Feedback : </label>
+    <textarea id="feedback" rows="4" required></textarea><br><br>
+
+    <input type="button" value="Submit" onclick="submitForm()">
+  </form>
+</body>
+</html>
